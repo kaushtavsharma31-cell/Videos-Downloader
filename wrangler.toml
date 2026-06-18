@@ -1,0 +1,9 @@
+name = "anything-downloader"
+main = "worker.js"
+compatibility_date = "2024-03-01"
+
+[assets]
+directory = "./public"
+
+[vars]
+BACKEND_API_URL = "https://anything-downloader-backend.onrender.com" # Replace this with your actual hosted Flask backend URL

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "tailwind-design-system": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/tailwind-design-system/SKILL.md",
+      "computedHash": "563dd03393259e3c4798ad0e08f3289c2ebd28633a3f48859523ea2a2d54d664"
+    },
+    "web-design-guidelines": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "9cb01f3716b46db154d5e142dad27543e230928367d5a7039100edb816fa2b29"
+    }
+  }
+}

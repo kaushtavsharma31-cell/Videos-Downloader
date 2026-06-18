@@ -10,7 +10,9 @@ import yt_dlp
 import instaloader
 from werkzeug.utils import secure_filename
 import zipfile
-import shutil
+import mimetypes
+import socket
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here-change-this'
@@ -26,6 +28,19 @@ class UniversalDownloader:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })
+        
+    def get_quality_format(self, quality):
+        """Map quality selector to yt-dlp format selection"""
+        if quality == 'audio':
+            return 'bestaudio/best'
+        elif quality == '360p':
+            return 'bestvideo[height<=360]+bestaudio/best[height<=360]'
+        elif quality == '480p':
+            return 'bestvideo[height<=480]+bestaudio/best[height<=480]'
+        elif quality == '720p':
+            return 'bestvideo[height<=720]+bestaudio/best[height<=720]'
+        else:
+            return 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'
         
     def detect_platform(self, url):
         """Detect the platform from URL"""
@@ -62,12 +77,14 @@ class UniversalDownloader:
             filename = filename[:max_length]
         return filename
     
-    def download_youtube_content(self, url, path):
+    def download_youtube_content(self, url, path, quality='1080p'):
         """Download YouTube videos, shorts, playlists"""
         try:
+            fmt = self.get_quality_format(quality)
+
             ydl_opts = {
                 'outtmpl': os.path.join(path, '%(uploader)s - %(title)s.%(ext)s'),
-                'format': 'best[height<=1080]',
+                'format': fmt,
                 'writesubtitles': True,
                 'writeautomaticsub': True,
                 'subtitleslangs': ['en'],
@@ -76,6 +93,9 @@ class UniversalDownloader:
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
+                
+                if not info:
+                    return {'status': 'error', 'message': 'Could not extract YouTube video info (video may be private or unavailable)'}
                 
                 if 'entries' in info:  # Playlist
                     titles = [entry.get('title', 'Unknown') for entry in info['entries'] if entry]
@@ -98,81 +118,102 @@ class UniversalDownloader:
     
     def download_instagram_content(self, url, path):
         """Download Instagram posts, reels, stories, IGTV"""
-        try:
-            loader = instaloader.Instaloader(
-                dirname_pattern=path,
-                filename_pattern='{profile}_{mediaid}_{date_utc}',
-                download_videos=True,
-                download_video_thumbnails=False,
-                download_geotags=False,
-                download_comments=False,
-                save_metadata=True,
-                compress_json=False
-            )
-            
-            # Handle different Instagram URL types
-            if '/stories/' in url:
-                # Story URL
-                username = self.extract_instagram_username(url)
-                if username:
-                    profile = instaloader.Profile.from_username(loader.context, username)
-                    for story in loader.get_stories([profile.userid]):
-                        for item in story.get_items():
-                            loader.download_storyitem(item, target=username)
-                    return {
-                        'status': 'success',
-                        'message': f'Instagram stories downloaded for {username}',
-                        'type': 'stories'
-                    }
-            elif '/reel/' in url or '/p/' in url or '/tv/' in url:
-                # Post, Reel, or IGTV
-                shortcode = self.extract_instagram_shortcode(url)
-                post = instaloader.Post.from_shortcode(loader.context, shortcode)
-                
-                loader.download_post(post, target=post.owner_username)
-                
-                content_type = 'reel' if post.is_video else 'post'
-                if post.typename == 'GraphSidecar':
-                    content_type = 'carousel'
-                
-                return {
-                    'status': 'success',
-                    'message': f'Instagram {content_type} downloaded successfully!',
-                    'username': post.owner_username,
-                    'caption': post.caption[:100] + '...' if post.caption and len(post.caption) > 100 else post.caption,
-                    'type': content_type
-                }
-            else:
-                # Profile URL - download recent posts
-                username = self.extract_instagram_username(url)
-                profile = instaloader.Profile.from_username(loader.context, username)
-                
-                count = 0
-                for post in profile.get_posts():
-                    if count >= 10:  # Limit to 10 recent posts
-                        break
-                    loader.download_post(post, target=username)
-                    count += 1
-                
-                return {
-                    'status': 'success',
-                    'message': f'Downloaded {count} recent posts from {username}',
-                    'type': 'profile'
-                }
-                
-        except Exception as e:
-            return {'status': 'error', 'message': f'Instagram error: {str(e)}'}
-    
-    def download_tiktok_content(self, url, path):
-        """Download TikTok videos"""
+        # Try yt-dlp first as it is often faster and works without login for videos
         try:
             ydl_opts = {
-                'outtmpl': os.path.join(path, 'TikTok_%(uploader)s_%(title)s.%(ext)s'),
+                'outtmpl': os.path.join(path, 'Instagram_%(uploader)s_%(title)s.%(ext)s'),
                 'format': 'best',
+            }
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                info = ydl.extract_info(url, download=True)
+                return {
+                    'status': 'success',
+                    'message': 'Instagram video downloaded successfully!',
+                    'title': info.get('title', 'Instagram Video'),
+                    'uploader': info.get('uploader', 'Unknown'),
+                    'type': 'video'
+                }
+        except Exception as ydl_err:
+            # Fallback to instaloader
+            try:
+                loader = instaloader.Instaloader(
+                    dirname_pattern=path,
+                    filename_pattern='{profile}_{mediaid}_{date_utc}',
+                    download_videos=True,
+                    download_video_thumbnails=False,
+                    download_geotags=False,
+                    download_comments=False,
+                    save_metadata=True,
+                    compress_json=False
+                )
+                
+                # Handle different Instagram URL types
+                if '/stories/' in url:
+                    # Story URL
+                    username = self.extract_instagram_username(url)
+                    if username:
+                        profile = instaloader.Profile.from_username(loader.context, username)
+                        for story in loader.get_stories([profile.userid]):
+                            for item in story.get_items():
+                                loader.download_storyitem(item, target=username)
+                        return {
+                            'status': 'success',
+                            'message': f'Instagram stories downloaded for {username}',
+                            'type': 'stories'
+                        }
+                elif '/reel/' in url or '/p/' in url or '/tv/' in url:
+                    # Post, Reel, or IGTV
+                    shortcode = self.extract_instagram_shortcode(url)
+                    post = instaloader.Post.from_shortcode(loader.context, shortcode)
+                    
+                    loader.download_post(post, target=post.owner_username)
+                    
+                    content_type = 'reel' if post.is_video else 'post'
+                    if post.typename == 'GraphSidecar':
+                        content_type = 'carousel'
+                    
+                    return {
+                        'status': 'success',
+                        'message': f'Instagram {content_type} downloaded successfully!',
+                        'username': post.owner_username,
+                        'caption': post.caption[:100] + '...' if post.caption and len(post.caption) > 100 else post.caption,
+                        'type': content_type
+                    }
+                else:
+                    # Profile URL - download recent posts
+                    username = self.extract_instagram_username(url)
+                    profile = instaloader.Profile.from_username(loader.context, username)
+                    
+                    count = 0
+                    for post in profile.get_posts():
+                        if count >= 10:  # Limit to 10 recent posts
+                            break
+                        loader.download_post(post, target=username)
+                        count += 1
+                    
+                    return {
+                        'status': 'success',
+                        'message': f'Downloaded {count} recent posts from {username}',
+                        'type': 'profile'
+                    }
+                    
+            except Exception as instaloader_err:
+                return {'status': 'error', 'message': f'Instagram error: {str(ydl_err)} | {str(instaloader_err)}'}
+    
+    def download_tiktok_content(self, url, path, quality='1080p'):
+        """Download TikTok videos"""
+        try:
+            fmt = self.get_quality_format(quality)
+
+            ydl_opts = {
+                'outtmpl': os.path.join(path, 'TikTok_%(uploader)s_%(title)s.%(ext)s'),
+                'format': fmt,
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
+                if not info:
+                    return {'status': 'error', 'message': 'TikTok video is unavailable or private'}
                 return {
                     'status': 'success',
                     'message': 'TikTok video downloaded successfully!',
@@ -183,16 +224,21 @@ class UniversalDownloader:
         except Exception as e:
             return {'status': 'error', 'message': f'TikTok error: {str(e)}'}
     
-    def download_twitter_content(self, url, path):
+    def download_twitter_content(self, url, path, quality='1080p'):
         """Download Twitter/X videos, images, threads"""
         try:
+            fmt = self.get_quality_format(quality)
+
             ydl_opts = {
                 'outtmpl': os.path.join(path, 'Twitter_%(uploader)s_%(title)s.%(ext)s'),
+                'format': fmt,
                 'writesubtitles': True,
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
+                if not info:
+                    return {'status': 'error', 'message': 'Twitter content is unavailable or private'}
                 return {
                     'status': 'success',
                     'message': 'Twitter content downloaded successfully!',
@@ -203,16 +249,20 @@ class UniversalDownloader:
         except Exception as e:
             return {'status': 'error', 'message': f'Twitter error: {str(e)}'}
     
-    def download_facebook_content(self, url, path):
+    def download_facebook_content(self, url, path, quality='1080p'):
         """Download Facebook videos, posts"""
         try:
+            fmt = self.get_quality_format(quality)
+
             ydl_opts = {
                 'outtmpl': os.path.join(path, 'Facebook_%(title)s.%(ext)s'),
-                'format': 'best',
+                'format': fmt,
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
+                if not info:
+                    return {'status': 'error', 'message': 'Facebook content is unavailable or private'}
                 return {
                     'status': 'success',
                     'message': 'Facebook content downloaded successfully!',
@@ -222,15 +272,20 @@ class UniversalDownloader:
         except Exception as e:
             return {'status': 'error', 'message': f'Facebook error: {str(e)}'}
     
-    def download_reddit_content(self, url, path):
+    def download_reddit_content(self, url, path, quality='1080p'):
         """Download Reddit videos, images, gifs"""
         try:
+            fmt = self.get_quality_format(quality)
+
             ydl_opts = {
                 'outtmpl': os.path.join(path, 'Reddit_%(title)s.%(ext)s'),
+                'format': fmt,
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
+                if not info:
+                    return {'status': 'error', 'message': 'Reddit video is unavailable or private'}
                 return {
                     'status': 'success',
                     'message': 'Reddit content downloaded successfully!',
@@ -240,16 +295,20 @@ class UniversalDownloader:
         except Exception as e:
             return {'status': 'error', 'message': f'Reddit error: {str(e)}'}
     
-    def download_generic_content(self, url, path):
+    def download_generic_content(self, url, path, quality='1080p'):
         """Download from any supported platform using yt-dlp"""
         try:
+            fmt = self.get_quality_format(quality)
+
             ydl_opts = {
                 'outtmpl': os.path.join(path, '%(extractor)s_%(title)s.%(ext)s'),
-                'format': 'best',
+                'format': fmt,
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
+                if not info:
+                    return {'status': 'error', 'message': 'Content is unavailable or private'}
                 return {
                     'status': 'success',
                     'message': 'Content downloaded successfully!',
@@ -280,7 +339,7 @@ class UniversalDownloader:
             return match.group(1)
         return None
     
-    def download_content(self, url, custom_path=None):
+    def download_content(self, url, custom_path=None, quality='1080p'):
         """Main download function"""
         path = custom_path or DOWNLOAD_DIR
         platform = self.detect_platform(url)
@@ -292,20 +351,41 @@ class UniversalDownloader:
         
         try:
             if platform == 'youtube':
-                return self.download_youtube_content(url, download_folder)
+                result = self.download_youtube_content(url, download_folder, quality=quality)
             elif platform == 'instagram':
-                return self.download_instagram_content(url, download_folder)
+                result = self.download_instagram_content(url, download_folder)
             elif platform == 'tiktok':
-                return self.download_tiktok_content(url, download_folder)
+                result = self.download_tiktok_content(url, download_folder, quality=quality)
             elif platform == 'twitter':
-                return self.download_twitter_content(url, download_folder)
+                result = self.download_twitter_content(url, download_folder, quality=quality)
             elif platform == 'facebook':
-                return self.download_facebook_content(url, download_folder)
+                result = self.download_facebook_content(url, download_folder, quality=quality)
             elif platform == 'reddit':
-                return self.download_reddit_content(url, download_folder)
+                result = self.download_reddit_content(url, download_folder, quality=quality)
             else:
                 # Try generic download for other platforms
-                return self.download_generic_content(url, download_folder)
+                result = self.download_generic_content(url, download_folder, quality=quality)
+                
+            # Scan for downloaded files
+            if result.get('status') == 'success':
+                downloaded_files = []
+                for root, dirs, files in os.walk(download_folder):
+                    for file in files:
+                        if not file.endswith(('.json', '.txt', '.info.json', '.temp')):
+                            file_path = os.path.join(root, file)
+                            rel_path = os.path.relpath(file_path, DOWNLOAD_DIR)
+                            downloaded_files.append({
+                                'name': file,
+                                'path': rel_path.replace('\\', '/'),
+                                'size': os.path.getsize(file_path)
+                            })
+                result['files'] = downloaded_files
+                
+                # Check if there are any downloaded images we can use as local thumbnail
+                images = [f for f in downloaded_files if f['name'].lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))]
+                if images:
+                    result['thumbnail_local'] = f"/download-file/{images[0]['path']}"
+            return result
                 
         except Exception as e:
             return {'status': 'error', 'message': f'Unexpected error: {str(e)}'}
@@ -318,12 +398,33 @@ def index():
     """Main page"""
     return render_template('index.html')
 
+@app.route('/about-us')
+def about_us():
+    """About Us page"""
+    return render_template('about_us.html')
+
+@app.route('/contact-us')
+def contact_us():
+    """Contact Us page"""
+    return render_template('contact_us.html')
+
+@app.route('/privacy-policy')
+def privacy_policy():
+    """Privacy Policy page"""
+    return render_template('privacy_policy.html')
+
+@app.route('/terms-conditions')
+def terms_conditions():
+    """Terms & Conditions page"""
+    return render_template('terms_conditions.html')
+
 @app.route('/download', methods=['POST'])
 def download():
     """Handle download requests"""
     try:
-        data = request.get_json()
+        data = request.get_json() or {}
         url = data.get('url', '').strip()
+        quality = data.get('quality', '1080p').strip()
         
         if not url:
             return jsonify({'status': 'error', 'message': 'URL is required'})
@@ -332,7 +433,7 @@ def download():
         platform = downloader.detect_platform(url)
         
         # Start download
-        result = downloader.download_content(url)
+        result = downloader.download_content(url, quality=quality)
         result['platform'] = platform
         
         return jsonify(result)
@@ -378,15 +479,31 @@ def list_downloads():
                     items.append({
                         'name': item,
                         'type': 'file',
-                        'size': os.path.getsize(item_path)
+                        'size': os.path.getsize(item_path),
+                        'path': item
                     })
                 elif os.path.isdir(item_path):
-                    file_count = len([f for f in os.listdir(item_path) if os.path.isfile(os.path.join(item_path, f))])
+                    # Scan files inside this folder
+                    media_files = []
+                    for root, dirs, files in os.walk(item_path):
+                        for file in files:
+                            if not file.endswith(('.json', '.txt', '.info.json', '.temp')):
+                                file_path = os.path.join(root, file)
+                                rel_path = os.path.relpath(file_path, DOWNLOAD_DIR)
+                                media_files.append({
+                                    'name': file,
+                                    'path': rel_path.replace('\\', '/'),
+                                    'size': os.path.getsize(file_path)
+                                })
                     items.append({
                         'name': item,
                         'type': 'folder',
-                        'file_count': file_count
+                        'files': media_files,
+                        'file_count': len(media_files)
                     })
+        
+        # Sort items: newest first
+        items.sort(key=lambda x: os.path.getmtime(os.path.join(DOWNLOAD_DIR, x['name'])), reverse=True)
         
         return jsonify({'items': items})
     except Exception as e:
@@ -396,11 +513,22 @@ def list_downloads():
 def download_file(filename):
     """Download a specific file"""
     try:
-        safe_filename = secure_filename(filename)
-        file_path = os.path.join(DOWNLOAD_DIR, safe_filename)
-        
-        if os.path.exists(file_path):
-            return send_file(file_path, as_attachment=True)
+        # Prevent path traversal
+        if '..' in filename or filename.startswith('/'):
+            return jsonify({'error': 'Invalid file path'}), 400
+            
+        file_path = os.path.abspath(os.path.join(DOWNLOAD_DIR, filename))
+        if not file_path.startswith(os.path.abspath(DOWNLOAD_DIR)):
+            return jsonify({'error': 'Access denied'}), 403
+            
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            base_name = os.path.basename(file_path)
+            # Guess the mimetype so that mobile galleries can index it correctly
+            mimetype, _ = mimetypes.guess_type(file_path)
+            if not mimetype:
+                mimetype = 'application/octet-stream'
+            # Send file with proper mimetype
+            return send_file(file_path, as_attachment=True, download_name=base_name, mimetype=mimetype)
         else:
             return jsonify({'error': 'File not found'}), 404
     except Exception as e:
@@ -476,6 +604,23 @@ def clear_downloads():
         return jsonify({'status': 'success', 'message': 'Downloads cleared successfully'})
     except Exception as e:
         return jsonify({'status': 'error', 'message': f'Error clearing downloads: {str(e)}'})
+
+@app.route('/get-ip')
+def get_ip():
+    """Get local IP address of the server for mobile testing"""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        return jsonify({'ip': ip, 'port': 5000, 'url': f"http://{ip}:5000"})
+    except Exception:
+        try:
+            hostname = socket.gethostname()
+            ip = socket.gethostbyname(hostname)
+            return jsonify({'ip': ip, 'port': 5000, 'url': f"http://{ip}:5000"})
+        except Exception as e:
+            return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
     print("=" * 60)

@@ -1,0 +1,26 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Large binaries (FFmpeg/FFprobe)
+ffmpeg.exe
+ffprobe.exe
+ffmpeg
+ffprobe
+
+# Node modules
+node_modules/
+.npm/
+
+# Downloaded files
+downloads/
+
+# Local configuration / IDE files
+.gemini/
+.agents/
+.idea/
+.vscode/
+*.log
+*.zip
+*.tar.gz
