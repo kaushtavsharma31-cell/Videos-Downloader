@@ -136,12 +136,8 @@
     <header class="sticky top-0 z-50 w-full bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800/80 shadow-sm transition-all duration-300">
         <!-- Row 1: Logo and Core CTA -->
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-3">
-                <img src="/static/images/logo.png" alt="Anything downloader Logo" class="h-10 w-auto object-contain rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm dark:brightness-0 dark:invert" id="header-logo">
-                <div class="flex flex-col leading-none">
-                    <span class="font-display font-extrabold text-base tracking-tight text-slate-900 dark:text-white">Anything</span>
-                    <span class="font-display font-extrabold text-sm tracking-tight text-brandLime-500">downloader</span>
-                </div>
+            <a href="/" class="flex items-center">
+                <img src="/static/images/logo.png" alt="Downly Logo" class="h-10 w-auto object-contain rounded-xl dark:brightness-0 dark:invert" id="header-logo">
             </a>
             
             <div class="flex items-center gap-2">
@@ -173,28 +169,28 @@
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 pt-12 pb-24 flex flex-col gap-16 relative z-10">
+    <main class="max-w-6xl mx-auto px-4 pt-4 pb-20 flex flex-col gap-10 relative z-10">
         
         <!-- Hero Section -->
-        <section class="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 mt-4">
-            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-semibold bg-brandLime-500/10 text-brandLime-600 dark:text-brandLime-300 border border-brandLime-500/20 rounded-full">
+        <section class="max-w-3xl mx-auto text-center flex flex-col items-center gap-3.5 mt-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 text-xs font-semibold bg-brandLime-500/10 text-brandLime-600 dark:text-brandLime-300 border border-brandLime-500/20 rounded-full">
                 <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brandLime-500"></i>
                 #1 Social Media Downloader
             </span>
             
             <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-                Download Anything. <span class="text-brandLime-500">Anywhere.</span>
+                Download Anything.
             </h1>
             
-            <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+            <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
                 Save videos, reels, stories, shorts, posts, and audio from all major social media platforms instantly.
             </p>
             
             <!-- Feature Badge Badges -->
-            <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
-                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-brandLime-500"></i> 100% Safe</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-4 h-4 text-brandLime-500"></i> Instant Download</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-brandLime-500"></i> No Watermark</span>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brandLime-500"></i> 100% Safe</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-brandLime-500"></i> Instant Download</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-brandLime-500"></i> No Watermark</span>
             </div>
         </section>
 
@@ -218,47 +214,51 @@
                 <!-- Single URL Downloader -->
                 <div id="single-panel" class="tab-panel space-y-6">
                     <div class="flex flex-col gap-4">
-                        <div class="relative flex flex-col md:flex-row items-stretch md:items-center bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-2.5 focus-within:border-brandLime-500 focus-within:bg-white dark:focus-within:bg-slate-950 focus-within:shadow-[0_0_20px_rgba(132,204,22,0.15)] transition-all duration-300 gap-3">
-                            <div class="flex items-center flex-1 px-3 py-2 md:py-0">
-                                <div id="url-platform-icon" class="text-slate-400 mr-3 transition-colors duration-300">
-                                    <i data-lucide="link" class="w-5 h-5"></i>
-                                </div>
-                                <input 
-                                    type="url" 
-                                    id="single-url" 
-                                    class="w-full bg-transparent border-0 outline-none text-slate-950 dark:text-white placeholder-slate-400 text-sm sm:text-base focus:ring-0" 
-                                    placeholder="Paste your link here..."
-                                />
+                        <!-- Input Pill Bar (Single row on mobile & desktop) -->
+                        <div class="relative flex flex-row items-center bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 rounded-full p-1.5 pl-4 focus-within:border-brandLime-500 focus-within:bg-white dark:focus-within:bg-slate-950 focus-within:shadow-[0_0_20px_rgba(132,204,22,0.15)] transition-all duration-300 gap-2 w-full">
+                            <!-- Link Icon -->
+                            <div id="url-platform-icon" class="text-slate-400 flex-shrink-0 transition-colors duration-300">
+                                <i data-lucide="link" class="w-5 h-5"></i>
                             </div>
                             
-                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                                <!-- Paste Button -->
-                                <button onclick="pasteFromClipboard()" class="flex items-center justify-center p-3.5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 rounded-xl transition-all shadow-sm touch-target" title="Paste from Clipboard">
-                                    <i data-lucide="clipboard" class="w-4 h-4"></i>
-                                </button>
-
-                                <!-- Quality Selector Dropdown -->
-                                <div class="relative">
-                                    <select id="single-quality" class="w-full sm:w-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-sm font-semibold px-4 py-3 rounded-xl appearance-none pr-8 cursor-pointer focus:outline-none focus:border-brandLime-500 shadow-sm">
-                                        <option value="1080p">1080p Full HD</option>
-                                        <option value="720p">720p HD</option>
-                                        <option value="480p">480p SD</option>
-                                        <option value="360p">360p SD</option>
-                                        <option value="audio">Audio Only (MP3)</option>
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
-                                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Input Box -->
+                            <input 
+                                type="url" 
+                                id="single-url" 
+                                class="flex-1 bg-transparent border-0 outline-none text-slate-950 dark:text-white placeholder-slate-400 text-sm focus:ring-0 min-w-0" 
+                                placeholder="Paste Link Here..."
+                            />
+                            
+                            <!-- Paste Button (Lime Green Pill) -->
+                            <button onclick="pasteFromClipboard()" class="flex items-center justify-center gap-1.5 px-5 py-2.5 text-white bg-brandLime-500 hover:bg-brandLime-600 rounded-full font-bold text-sm shadow-sm transition-all flex-shrink-0 touch-target" id="paste-btn">
+                                <i data-lucide="clipboard" class="w-4 h-4"></i>
+                                <span>Paste</span>
+                            </button>
                         </div>
                         
-                        <!-- Download Button (Lime color) -->
-                        <button onclick="downloadSingle()" class="w-full inline-flex items-center justify-center py-4 font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-xl shadow-md hover:shadow-lg active:scale-95 transition-all gap-2 touch-target" id="download-btn">
-                            <i id="btn-arrow" data-lucide="download" class="w-5 h-5"></i>
-                            <span id="btn-text">Download</span>
-                            <span id="btn-spinner" class="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin hidden"></span>
-                        </button>
+                        <!-- Settings & Action Row -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <!-- Quality Selector -->
+                            <div class="relative w-full sm:w-52 flex-shrink-0">
+                                <select id="single-quality" class="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 text-slate-800 dark:text-slate-200 text-sm font-semibold px-4 py-3.5 rounded-2xl appearance-none pr-10 cursor-pointer focus:outline-none focus:border-brandLime-500 shadow-sm">
+                                    <option value="1080p">1080p Full HD</option>
+                                    <option value="720p">720p HD</option>
+                                    <option value="480p">480p SD</option>
+                                    <option value="360p">360p SD</option>
+                                    <option value="audio">Audio Only (MP3)</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Download Button (Lime color) -->
+                            <button onclick="downloadSingle()" class="flex-1 inline-flex items-center justify-center py-3.5 font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all gap-2 touch-target" id="download-btn">
+                                <i id="btn-arrow" data-lucide="download" class="w-5 h-5"></i>
+                                <span id="btn-text">Download</span>
+                                <span id="btn-spinner" class="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin hidden"></span>
+                            </button>
+                        </div>
                     </div>
 
                     <div id="single-status"></div>
@@ -727,14 +727,10 @@
     <footer class="w-full bg-slate-900 text-slate-300 border-t border-slate-800 mt-12 relative z-10 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex flex-col items-center md:items-start gap-2">
-                <a href="/" class="flex items-center gap-3">
-                    <img src="/static/images/logo.png" alt="Anything downloader Logo" class="h-8 w-auto object-contain rounded-lg border border-slate-700/50 brightness-0 invert" id="footer-logo">
-                    <div class="flex flex-col leading-none text-left">
-                        <span class="font-display font-extrabold text-base tracking-tight text-white">Anything</span>
-                        <span class="font-display font-extrabold text-sm tracking-tight text-brandLime-500">downloader</span>
-                    </div>
+                <a href="/" class="flex items-center">
+                    <img src="/static/images/logo.png" alt="Downly Logo" class="h-8 w-auto object-contain rounded-lg brightness-0 invert" id="footer-logo">
                 </a>
-                <p class="text-xs text-slate-400 mt-1">© 2026 Anything downloader Inc. All rights reserved.</p>
+                <p class="text-xs text-slate-400 mt-1">© 2026 Downly Inc. All rights reserved.</p>
             </div>
 
             <!-- Footer links -->
