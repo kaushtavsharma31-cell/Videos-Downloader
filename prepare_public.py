@@ -49,8 +49,8 @@ def main():
     else:
         print(f"Warning: static folder not found in {workspace}")
         
-    # 4. Copy robots.txt and sitemap.xml to public root
-    seo_files = ['robots.txt', 'sitemap.xml']
+    # 4. Copy robots.txt, sitemap.xml, favicon.ico, and favicon.png to public root
+    seo_files = ['robots.txt', 'sitemap.xml', 'favicon.ico', 'favicon.png']
     for sf in seo_files:
         src = os.path.join(workspace, sf)
         dst = os.path.join(public_dir, sf)

@@ -640,6 +640,24 @@ def serve_sitemap():
         return send_file(sitemap_path, mimetype='application/xml')
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>", 404, {'Content-Type': 'application/xml'}
 
+@app.route('/favicon.ico')
+def serve_favicon_ico():
+    """Serve favicon.ico from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    ico_path = os.path.join(public_dir, 'favicon.ico')
+    if os.path.exists(ico_path):
+        return send_file(ico_path, mimetype='image/x-icon')
+    return "", 404
+
+@app.route('/favicon.png')
+def serve_favicon_png():
+    """Serve favicon.png from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    png_path = os.path.join(public_dir, 'favicon.png')
+    if os.path.exists(png_path):
+        return send_file(png_path, mimetype='image/png')
+    return "", 404
+
 if __name__ == '__main__':
     print("=" * 60)
     print("UNIVERSAL SOCIAL MEDIA DOWNLOADER")
