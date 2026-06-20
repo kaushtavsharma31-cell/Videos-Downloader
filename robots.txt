@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /download
+Disallow: /downloads
+Disallow: /download-file
+Disallow: /clear-downloads
+Disallow: /get-ip
+
+Sitemap: https://anythingdownloader.com/sitemap.xml

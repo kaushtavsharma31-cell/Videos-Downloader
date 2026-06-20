@@ -49,6 +49,20 @@ def main():
     else:
         print(f"Warning: static folder not found in {workspace}")
         
+    # 4. Copy robots.txt and sitemap.xml to public root
+    seo_files = ['robots.txt', 'sitemap.xml']
+    for sf in seo_files:
+        src = os.path.join(workspace, sf)
+        dst = os.path.join(public_dir, sf)
+        if os.path.exists(src):
+            print(f"Copying SEO file: {sf} -> public/")
+            try:
+                shutil.copy2(src, dst)
+            except Exception as e:
+                print(f"Error copying {sf}: {e}")
+        else:
+            print(f"Warning: SEO file {sf} not found in {workspace}")
+        
     print("Public directory prepared successfully!")
 
 if __name__ == '__main__':
