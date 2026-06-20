@@ -658,6 +658,33 @@ def serve_favicon_png():
         return send_file(png_path, mimetype='image/png')
     return "", 404
 
+@app.route('/favicon-16x16.png')
+def serve_favicon_16():
+    """Serve favicon-16x16.png from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    png_path = os.path.join(public_dir, 'favicon-16x16.png')
+    if os.path.exists(png_path):
+        return send_file(png_path, mimetype='image/png')
+    return "", 404
+
+@app.route('/favicon-32x32.png')
+def serve_favicon_32():
+    """Serve favicon-32x32.png from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    png_path = os.path.join(public_dir, 'favicon-32x32.png')
+    if os.path.exists(png_path):
+        return send_file(png_path, mimetype='image/png')
+    return "", 404
+
+@app.route('/apple-touch-icon.png')
+def serve_apple_touch_icon():
+    """Serve apple-touch-icon.png from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    png_path = os.path.join(public_dir, 'apple-touch-icon.png')
+    if os.path.exists(png_path):
+        return send_file(png_path, mimetype='image/png')
+    return "", 404
+
 if __name__ == '__main__':
     print("=" * 60)
     print("UNIVERSAL SOCIAL MEDIA DOWNLOADER")
