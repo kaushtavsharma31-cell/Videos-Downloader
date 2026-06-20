@@ -622,6 +622,24 @@ def get_ip():
         except Exception as e:
             return jsonify({'error': str(e)})
 
+@app.route('/robots.txt')
+def serve_robots():
+    """Serve robots.txt from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    robots_path = os.path.join(public_dir, 'robots.txt')
+    if os.path.exists(robots_path):
+        return send_file(robots_path, mimetype='text/plain')
+    return "User-agent: *\nAllow: /", 200, {'Content-Type': 'text/plain'}
+
+@app.route('/sitemap.xml')
+def serve_sitemap():
+    """Serve sitemap.xml from the public folder"""
+    public_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
+    sitemap_path = os.path.join(public_dir, 'sitemap.xml')
+    if os.path.exists(sitemap_path):
+        return send_file(sitemap_path, mimetype='application/xml')
+    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>", 404, {'Content-Type': 'application/xml'}
+
 if __name__ == '__main__':
     print("=" * 60)
     print("UNIVERSAL SOCIAL MEDIA DOWNLOADER")
