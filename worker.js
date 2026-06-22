@@ -6,8 +6,10 @@ export default {
     // API routes that need to be proxied to the Python Flask backend
     const apiRoutes = [
       '/download',
+      '/bulk-download',
       '/downloads',
       '/download-file',
+      '/download-folder',
       '/clear-downloads',
       '/get-ip',
       '/supported-platforms'
@@ -78,6 +80,7 @@ export default {
     const cleanUrls = {
       '/about-us': '/about_us.html',
       '/contact-us': '/contact_us.html',
+      '/faq': '/faq.html',
       '/privacy-policy': '/privacy_policy.html',
       '/terms-conditions': '/terms_conditions.html'
     };

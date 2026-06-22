@@ -18,23 +18,23 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anything Downloder - Free Social Media Video Downloader</title>
-    <meta name="description" content="Download videos, reels, stories, shorts, and audio from Instagram, YouTube, TikTok, Facebook, Twitter (X), Pinterest, Reddit, Snapchat, LinkedIn, and more in HD quality. 100% free and unlimited.">
+    <title>Pinterest Video Downloader | Download Pinterest Videos HD Free</title>
+    <meta name="description" content="Download Pinterest videos, idea pins, GIFs, and images online for free. Fast Pinterest Video Downloader with HD quality downloads and no registration required.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="http://localhost:5000/">
+    <link rel="canonical" href="https://anythingdownloader.com/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:5000/">
-    <meta property="og:title" content="Anything Downloder - Free Social Media Video Downloader">
-    <meta property="og:description" content="Download videos, reels, stories, shorts, and audio from Instagram, YouTube, TikTok, Facebook, Twitter (X), Pinterest, Reddit, Snapchat, LinkedIn, and more in HD quality. 100% free and unlimited.">
+    <meta property="og:url" content="https://anythingdownloader.com/">
+    <meta property="og:title" content="Pinterest Video Downloader - Free HD Pinterest Downloads">
+    <meta property="og:description" content="Download Pinterest videos, GIFs, and images instantly with Downly.">
     <meta property="og:image" content="/static/images/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://localhost:5000/">
-    <meta property="twitter:title" content="Anything Downloder - Free Social Media Video Downloader">
-    <meta property="twitter:description" content="Download videos, reels, stories, shorts, and audio from Instagram, YouTube, TikTok, Facebook, Twitter (X), Pinterest, Reddit, Snapchat, LinkedIn, and more in HD quality. 100% free and unlimited.">
+    <meta property="twitter:url" content="https://anythingdownloader.com/">
+    <meta property="twitter:title" content="Pinterest Video Downloader - Free HD Pinterest Downloads">
+    <meta property="twitter:description" content="Download Pinterest videos, GIFs, and images instantly with Downly.">
     <meta property="twitter:image" content="/static/images/logo.png">
 
     <!-- Google Fonts -->
@@ -54,15 +54,17 @@
                         display: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        brandLime: {
-                            50: '#f7fee7',
-                            100: '#ecfccb',
-                            200: '#d9f99d',
-                            300: '#bef264',
-                            400: '#a3e635',
-                            500: '#84cc16',
-                            600: '#65a30d',
-                            700: '#4d7c0f',
+                        brandRed: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#e60023', // Pinterest red
+                            600: '#cc001f',
+                            700: '#a30019',
+                            800: '#7f1d1d',
+                            900: '#4c0505',
                         }
                     }
                 }
@@ -73,20 +75,76 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Schema.org JSON-LD Structured Data -->
+    <!-- Schema.org JSON-LD Structured Data (WebApplication, FAQ, and Organization) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Anything Downloder",
-      "operatingSystem": "All",
-      "applicationCategory": "MultimediaApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD"
-      },
-      "description": "Download videos, reels, stories, shorts, and audio from Instagram, YouTube, TikTok, Facebook, Twitter (X), Pinterest, Reddit, Snapchat, LinkedIn, and more in HD quality. 100% free and unlimited."
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Downly - Pinterest Video Downloader",
+          "url": "https://anythingdownloader.com/",
+          "operatingSystem": "All",
+          "applicationCategory": "MultimediaApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          },
+          "description": "Download Pinterest videos, idea pins, GIFs, and images online for free. Fast Pinterest Video Downloader with HD quality downloads and no registration required."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I download Pinterest videos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Copy the Pinterest video link, paste it into the downloader box above, and click Download."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Pinterest Video Downloader free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Downly is 100% free with no daily limits or registration required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I download Pinterest GIFs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Downly supports downloading Pinterest GIFs, images, reels, and idea pins."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use it on mobile devices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our downloader works perfectly on all mobile devices, tablets, and desktops."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is registration required?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, you can use Downly to download Pinterest videos instantly without creating an account."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Organization",
+          "name": "Downly",
+          "url": "https://anythingdownloader.com/",
+          "logo": "https://anythingdownloader.com/static/images/logo.png"
+        }
+      ]
     }
     </script>
 
@@ -113,7 +171,7 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #F8FAFC;
+            background: #ffffff;
         }
         .dark ::-webkit-scrollbar-track {
             background: #0B0F19;
@@ -145,14 +203,15 @@
         }
     </script>
 </head>
-<body class="bg-slate-50 dark:bg-[#0B0F19] text-slate-800 dark:text-slate-100 font-sans min-h-screen relative overflow-x-hidden">
+<body class="bg-white dark:bg-[#0B0F19] text-slate-800 dark:text-slate-100 font-sans min-h-screen relative overflow-x-hidden transition-colors duration-300">
 
     <!-- Header Section -->
-    <header class="sticky top-0 z-50 w-full bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800/80 shadow-sm transition-all duration-300">
+    <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#0B0F19]/95 border-b border-slate-200 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
         <!-- Row 1: Logo and Core CTA -->
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center">
-                <img src="/static/images/logo.png" alt="Anything Downloder Logo" class="h-10 w-auto object-contain rounded-xl" id="header-logo">
+                <img src="/static/images/logo.png" alt="Downly Logo" class="h-10 w-auto object-contain rounded-xl" id="header-logo">
+                <span class="ml-2.5 font-display font-extrabold text-xl tracking-tight text-brandRed-500">Downly</span>
             </a>
             
             <div class="flex items-center gap-2">
@@ -166,8 +225,8 @@
                     <i data-lucide="smartphone" class="w-4 h-4"></i> Test on Mobile
                 </button>
                 <!-- Get Started button -->
-                <a href="#downloader-widget" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 dark:bg-brandLime-300 dark:hover:bg-brandLime-400 rounded-xl transition-all shadow-sm">
-                    Get Started
+                <a href="#downloader-widget" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-xl transition-all shadow-sm">
+                    Download Now
                 </a>
             </div>
         </div>
@@ -175,9 +234,10 @@
         <!-- Row 2: Secondary Navigation links -->
         <div class="bg-slate-50 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-900">
             <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center gap-6 text-xs sm:text-sm font-semibold overflow-x-auto whitespace-nowrap scrollbar-none">
-                <a href="/" class="text-brandLime-600 dark:text-brandLime-400 transition-colors border-b-2 border-brandLime-500 pb-0.5">Home</a>
+                <a href="/" class="text-brandRed-600 dark:text-brandRed-400 transition-colors border-b-2 border-brandRed-500 pb-0.5">Home</a>
                 <a href="/about-us" class="text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors">About Us</a>
                 <a href="/contact-us" class="text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors">Contact Us</a>
+                <a href="/faq" class="text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors">FAQ</a>
                 <a href="/privacy-policy" class="text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors">Privacy Policy</a>
                 <a href="/terms-conditions" class="text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors">Terms & Conditions</a>
             </div>
@@ -187,25 +247,25 @@
     <main class="max-w-6xl mx-auto px-4 pt-4 pb-20 flex flex-col gap-10 relative z-10">
         
         <!-- Hero Section -->
-        <section class="max-w-3xl mx-auto text-center flex flex-col items-center gap-3.5 mt-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 text-xs font-semibold bg-brandLime-500/10 text-brandLime-600 dark:text-brandLime-300 border border-brandLime-500/20 rounded-full">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brandLime-500"></i>
-                #1 Social Media Downloader
+        <section class="max-w-3xl mx-auto text-center flex flex-col items-center gap-3.5 mt-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 text-xs font-semibold bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-300 border border-brandRed-500/20 rounded-full">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brandRed-500"></i>
+                Pinterest Video Downloader
             </span>
             
             <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-                Download Anything.
+                Pinterest Video Downloader – Download Pinterest Videos in HD
             </h1>
             
-            <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
-                Save videos, reels, stories, shorts, posts, and audio from all major social media platforms instantly.
+            <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+                Download Pinterest videos, idea pins, GIFs, images, and reels instantly in HD quality. Fast, free, secure, and no registration required.
             </p>
             
             <!-- Feature Badge Badges -->
-            <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brandLime-500"></i> 100% Safe</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-brandLime-500"></i> Instant Download</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-brandLime-500"></i> No Watermark</span>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300 mt-1">
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brandRed-500"></i> 100% Safe</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-brandRed-500"></i> Instant Download</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-brandRed-500"></i> No Watermark</span>
             </div>
         </section>
 
@@ -215,7 +275,7 @@
                 
                 <!-- Tab Controls -->
                 <div class="flex border-b border-slate-100 dark:border-slate-800/80 pb-4 mb-6 gap-2 overflow-x-auto">
-                    <button id="tab-single" onclick="switchWidgetTab('single')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-black bg-brandLime-300 border border-brandLime-300 transition-all shadow-sm whitespace-nowrap">
+                    <button id="tab-single" onclick="switchWidgetTab('single')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-brandRed-500 border border-brandRed-500 transition-all shadow-sm whitespace-nowrap">
                         <i data-lucide="link" class="w-4 h-4"></i> Single Download
                     </button>
                     <button id="tab-bulk" onclick="switchWidgetTab('bulk')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-950 transition-all whitespace-nowrap">
@@ -229,8 +289,8 @@
                 <!-- Single URL Downloader -->
                 <div id="single-panel" class="tab-panel space-y-6">
                     <div class="flex flex-col gap-4">
-                        <!-- Input Pill Bar (Single row on mobile & desktop) -->
-                        <div class="relative flex flex-row items-center bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 rounded-full p-1.5 pl-4 focus-within:border-brandLime-500 focus-within:bg-white dark:focus-within:bg-slate-950 focus-within:shadow-[0_0_20px_rgba(132,204,22,0.15)] transition-all duration-300 gap-2 w-full">
+                        <!-- Input Pill Bar -->
+                        <div class="relative flex flex-row items-center bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 rounded-full p-1.5 pl-4 focus-within:border-brandRed-500 focus-within:bg-white dark:focus-within:bg-slate-950 focus-within:shadow-[0_0_20px_rgba(230,0,35,0.15)] transition-all duration-300 gap-2 w-full">
                             <!-- Link Icon -->
                             <div id="url-platform-icon" class="text-slate-400 flex-shrink-0 transition-colors duration-300">
                                 <i data-lucide="link" class="w-5 h-5"></i>
@@ -241,11 +301,11 @@
                                 type="url" 
                                 id="single-url" 
                                 class="flex-1 bg-transparent border-0 outline-none text-slate-950 dark:text-white placeholder-slate-400 text-sm focus:ring-0 min-w-0" 
-                                placeholder="Paste Link Here..."
+                                placeholder="Paste Pinterest Video URL Here..."
                             />
                             
-                            <!-- Paste Button (Lime Green Pill) -->
-                            <button onclick="pasteFromClipboard()" class="flex items-center justify-center gap-1.5 px-5 py-2.5 text-white bg-brandLime-500 hover:bg-brandLime-600 rounded-full font-bold text-sm shadow-sm transition-all flex-shrink-0 touch-target" id="paste-btn">
+                            <!-- Paste Button -->
+                            <button onclick="pasteFromClipboard()" class="flex items-center justify-center gap-1.5 px-5 py-2.5 text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-full font-bold text-sm shadow-sm transition-all flex-shrink-0 touch-target" id="paste-btn">
                                 <i data-lucide="clipboard" class="w-4 h-4"></i>
                                 <span>Paste</span>
                             </button>
@@ -255,7 +315,7 @@
                         <div class="flex flex-col sm:flex-row gap-3">
                             <!-- Quality Selector -->
                             <div class="relative w-full sm:w-52 flex-shrink-0">
-                                <select id="single-quality" class="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 text-slate-800 dark:text-slate-200 text-sm font-semibold px-4 py-3.5 rounded-2xl appearance-none pr-10 cursor-pointer focus:outline-none focus:border-brandLime-500 shadow-sm">
+                                <select id="single-quality" class="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 text-slate-800 dark:text-slate-200 text-sm font-semibold px-4 py-3.5 rounded-2xl appearance-none pr-10 cursor-pointer focus:outline-none focus:border-brandRed-500 shadow-sm">
                                     <option value="1080p">1080p Full HD</option>
                                     <option value="720p">720p HD</option>
                                     <option value="480p">480p SD</option>
@@ -267,11 +327,11 @@
                                 </div>
                             </div>
                             
-                            <!-- Download Button (Lime color) -->
-                            <button onclick="downloadSingle()" class="flex-1 inline-flex items-center justify-center py-3.5 font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all gap-2 touch-target" id="download-btn">
+                            <!-- Download Button -->
+                            <button onclick="downloadSingle()" class="flex-1 inline-flex items-center justify-center py-3.5 font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all gap-2 touch-target" id="download-btn">
                                 <i id="btn-arrow" data-lucide="download" class="w-5 h-5"></i>
-                                <span id="btn-text">Download</span>
-                                <span id="btn-spinner" class="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin hidden"></span>
+                                <span id="btn-text">Download Now</span>
+                                <span id="btn-spinner" class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin hidden"></span>
                             </button>
                         </div>
                     </div>
@@ -282,7 +342,7 @@
                     <div id="result-container" class="hidden space-y-4 animate-fadeIn">
                         <div class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
                             <h3 class="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-brandLime-500"></i> Media Retrieved Successfully
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brandRed-500"></i> Media Retrieved Successfully
                             </h3>
                             
                             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-900 rounded-2xl p-5 md:p-6">
@@ -300,7 +360,7 @@
                                 <div class="md:col-span-8 flex flex-col justify-between space-y-4">
                                     <div class="space-y-2">
                                         <div class="flex flex-wrap gap-2 items-center">
-                                            <span id="result-platform-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-800 dark:text-brandLime-300 border border-brandLime-200 dark:border-brandLime-500/20">YouTube</span>
+                                            <span id="result-platform-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-800 dark:text-brandRed-300 border border-brandRed-200 dark:border-brandRed-500/20">Pinterest</span>
                                             <span id="result-duration-badge" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700">0:00</span>
                                         </div>
                                         <h4 id="result-title" class="font-display font-bold text-lg text-slate-900 dark:text-white leading-snug line-clamp-2">Original Media Content</h4>
@@ -354,18 +414,18 @@
                 <!-- Bulk Downloads Panel -->
                 <div id="bulk-panel" class="tab-panel hidden space-y-6">
                     <div class="space-y-2">
-                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300">Paste Multiple URLs <span class="text-xs text-slate-400 dark:text-slate-500 font-normal">(One URL per line)</span></label>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300">Paste Multiple Pinterest URLs <span class="text-xs text-slate-400 dark:text-slate-500 font-normal">(One URL per line)</span></label>
                         <textarea 
                             id="bulk-urls" 
-                            class="w-full min-h-[160px] bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:border-brandLime-500 focus:bg-white dark:focus:bg-slate-950 focus:shadow-[0_0_20px_rgba(132,204,22,0.1)] outline-none resize-none transition-all duration-300 font-mono" 
-                            placeholder="https://www.instagram.com/reel/example1/&#10;https://www.youtube.com/shorts/example2&#10;https://x.com/user/status/example3"
+                            class="w-full min-h-[160px] bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:border-brandRed-500 focus:bg-white dark:focus:bg-slate-950 focus:shadow-[0_0_20px_rgba(230,0,35,0.1)] outline-none resize-none transition-all duration-300 font-mono" 
+                            placeholder="https://www.pinterest.com/pin/1234567890/&#10;https://pin.it/abc123xyz&#10;https://www.pinterest.com/pin/9876543210/"
                         ></textarea>
                     </div>
 
-                    <button onclick="downloadBulk()" class="inline-flex items-center justify-center px-6 py-3.5 font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-xl shadow-md active:scale-95 transition-all gap-2 touch-target">
+                    <button onclick="downloadBulk()" class="inline-flex items-center justify-center px-6 py-3.5 font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-xl shadow-md active:scale-95 transition-all gap-2 touch-target">
                         <span id="bulk-btn-text">Download All URL Entries</span>
                         <i id="bulk-btn-arrow" data-lucide="download" class="w-4 h-4"></i>
-                        <span id="bulk-btn-spinner" class="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin hidden"></span>
+                        <span id="bulk-btn-spinner" class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin hidden"></span>
                     </button>
 
                     <div id="bulk-status"></div>
@@ -394,90 +454,135 @@
             </div>
         </section>
 
-        <!-- Supported Platforms Icon Row -->
+        <!-- Supported Formats Row (Rebranded) -->
         <section id="supported-platforms" class="max-w-4xl mx-auto w-full text-center space-y-6">
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 dark:text-slate-400">
-                <i data-lucide="check-circle" class="w-4 h-4 text-brandLime-500"></i>
-                We support 1000+ platforms
+                <i data-lucide="check-circle" class="w-4 h-4 text-brandRed-500"></i>
+                Supported Pinterest Media Formats
             </span>
-            <div class="flex flex-wrap items-center justify-center gap-4 py-4">
-                <div class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center shadow-md transform hover:scale-110 transition-transform cursor-pointer">
-                    <i data-lucide="youtube" class="w-6 h-6"></i>
+            <div class="flex flex-wrap items-center justify-center gap-6 py-2">
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full shadow-sm">
+                    <i data-lucide="video" class="w-4 h-4 text-brandRed-500"></i>
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Videos & Reels</span>
                 </div>
-                <div class="w-12 h-12 bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white rounded-full flex items-center justify-center shadow-md transform hover:scale-110 transition-transform cursor-pointer">
-                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full shadow-sm">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-brandRed-500"></i>
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Idea Pins</span>
                 </div>
-                <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center border border-slate-800 shadow-md transform hover:scale-110 transition-transform cursor-pointer">
-                    <i data-lucide="video" class="w-6 h-6"></i>
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full shadow-sm">
+                    <i data-lucide="image" class="w-4 h-4 text-brandRed-500"></i>
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Pinterest GIFs</span>
                 </div>
-                <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-md transform hover:scale-110 transition-transform cursor-pointer">
-                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                <div class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full shadow-sm">
+                    <i data-lucide="camera" class="w-4 h-4 text-brandRed-500"></i>
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Pinterest Images</span>
                 </div>
-                <div class="w-12 h-12 bg-sky-500 text-white rounded-full flex items-center justify-center shadow-md transform hover:scale-110 transition-transform cursor-pointer">
-                    <i data-lucide="twitter" class="w-6 h-6"></i>
-                </div>
-
             </div>
         </section>
 
-        <!-- Why Choose Us Grid Section -->
+        <!-- Features Grid Section -->
         <section id="features" class="space-y-8 max-w-6xl mx-auto w-full text-center">
-            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Why Choose Us?</h2>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Downly Features</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-left shadow-sm flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-600 dark:text-brandLime-400 flex items-center justify-center shrink-0">
-                        <i data-lucide="zap" class="w-6 h-6"></i>
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-display font-bold text-slate-900 dark:text-white">Blazing Fast</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Download your favorite social media files and videos in seconds.</p>
-                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Download Pinterest Videos</span>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-left shadow-sm flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-600 dark:text-brandLime-400 flex items-center justify-center shrink-0">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-display font-bold text-slate-900 dark:text-white">100% Safe</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Secure and private downloads. We don't store your history or account details.</p>
-                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Download Idea Pins</span>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-left shadow-sm flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-600 dark:text-brandLime-400 flex items-center justify-center shrink-0">
-                        <i data-lucide="check-circle" class="w-6 h-6"></i>
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-display font-bold text-slate-900 dark:text-white">High Quality</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Download media in original quality up to 1080p Full HD every single time.</p>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Download Pinterest GIFs</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
                     </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Download Pinterest Images</span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">HD Quality Downloads</span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Fast Processing</span>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Mobile Friendly</span>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">No Watermark</span>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 text-left shadow-sm flex items-center gap-4 hover:border-brandRed-500 transition-colors duration-300">
+                    <div class="w-10 h-10 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-600 dark:text-brandRed-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-display font-bold text-sm text-slate-800 dark:text-slate-200">Free Forever</span>
                 </div>
             </div>
         </section>
 
         <!-- How to Use Section -->
-        <section id="how-to-use" class="max-w-4xl mx-auto w-full space-y-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm">
-            <h2 class="font-display text-2xl font-extrabold text-slate-900 dark:text-white text-center">How to save videos directly on your device</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <section id="how-to-use" class="max-w-5xl mx-auto w-full space-y-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm">
+            <h2 class="font-display text-2xl font-extrabold text-slate-900 dark:text-white text-center">How to Download Pinterest Videos</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
                 <div class="space-y-3">
-                    <div class="w-8 h-8 rounded-full bg-brandLime-100 dark:bg-brandLime-500/15 text-brandLime-800 dark:text-brandLime-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">1</div>
-                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Copy Link URL</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Open Instagram, TikTok, YouTube, or any other platform. Tap "Share" and click "Copy Link" to copy the post URL to your clipboard.</p>
+                    <div class="w-8 h-8 rounded-full bg-brandRed-100 dark:bg-brandRed-500/15 text-brandRed-800 dark:text-brandRed-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">1</div>
+                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Copy Pinterest Link</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Copy the Pinterest video, reel, or pin link from your browser address bar or the share menu.</p>
                 </div>
                 <div class="space-y-3">
-                    <div class="w-8 h-8 rounded-full bg-brandLime-100 dark:bg-brandLime-500/15 text-brandLime-800 dark:text-brandLime-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">2</div>
-                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Paste and Select Quality</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Paste the copied URL in the search input box above, choose your preferred video quality from the dropdown, and hit the "Download" button.</p>
+                    <div class="w-8 h-8 rounded-full bg-brandRed-100 dark:bg-brandRed-500/15 text-brandRed-800 dark:text-brandRed-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">2</div>
+                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Paste in Downloader</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Paste it into the downloader search box at the top of the page.</p>
                 </div>
                 <div class="space-y-3">
-                    <div class="w-8 h-8 rounded-full bg-brandLime-100 dark:bg-brandLime-500/15 text-brandLime-800 dark:text-brandLime-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">3</div>
-                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Save to Gallery</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Click the generated file link to start downloading. The file will save straight to your device downloads, indexing directly into your gallery.</p>
+                    <div class="w-8 h-8 rounded-full bg-brandRed-100 dark:bg-brandRed-500/15 text-brandRed-800 dark:text-brandRed-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">3</div>
+                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Click Download</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Click the "Download Now" button to start parsing the video media assets.</p>
+                </div>
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-full bg-brandRed-100 dark:bg-brandRed-500/15 text-brandRed-800 dark:text-brandRed-400 font-mono font-bold flex items-center justify-center mx-auto md:mx-0">4</div>
+                    <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm">Save Instantly</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Save your Pinterest video or image directly to your local gallery in high definition quality.</p>
                 </div>
             </div>
         </section>
@@ -493,242 +598,55 @@
                 <!-- FAQ Item 1 -->
                 <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
                     <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q1">
-                        <span>What is Anything Downloder?</span>
+                        <span>How do I download Pinterest videos?</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Anything Downloder is a free online web utility that allows you to download videos, audio, images, reels, and stories from various platforms like Instagram, YouTube, TikTok, Facebook, Twitter (X), Reddit, Snapchat, LinkedIn, and more in high quality.
+                        Copy the Pinterest video link, paste it into the downloader box above, and click Download.
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
                 <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
                     <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q2">
-                        <span>Is Anything Downloder free to use?</span>
+                        <span>Is Pinterest Video Downloader free?</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes, Anything Downloder is 100% free. There are no download quotas, daily caps, or hidden subscriptions.
+                        Yes, Downly is 100% free with no daily limits or registration required.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
                 <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
                     <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q3">
-                        <span>Which platforms are supported by Anything Downloder?</span>
+                        <span>Can I download Pinterest GIFs?</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        We support Instagram (Reels, IGTV, posts, stories), YouTube (Videos, Shorts), TikTok, Facebook (Videos, posts), Twitter/X, Pinterest, Reddit, Snapchat, LinkedIn, Vimeo, Dailymotion, and Tumblr.
+                        Yes, Downly supports downloading Pinterest GIFs, images, reels, and idea pins.
                     </div>
                 </div>
 
                 <!-- FAQ Item 4 -->
                 <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
                     <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q4">
-                        <span>Do I need to install any software or browser extensions?</span>
+                        <span>Can I use it on mobile devices?</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        No installation is required. Everything runs directly inside your web browser (Chrome, Safari, Firefox, Edge, etc.) on desktop, tablet, and mobile.
+                        Yes, our downloader works perfectly on all mobile devices, tablets, and desktops.
                     </div>
                 </div>
 
                 <!-- FAQ Item 5 -->
                 <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
                     <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q5">
-                        <span>Do I need to create an account or sign up?</span>
+                        <span>Is registration required?</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        No. Anything Downloder works anonymously. We never ask for signups, email addresses, or social media logins, keeping your data secure.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q6">
-                        <span>How do I download Instagram Reels and Videos?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Open Instagram, copy the share link of the reel or video, paste it in the search input box above, and tap "Download."
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q7">
-                        <span>Can I download Instagram Stories?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes, public stories can be downloaded by pasting the URL of the story or by pasting the user's profile URL to scan their recent stories and posts.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q8">
-                        <span>How do I download YouTube Videos and Shorts?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Copy the video link or Shorts share link, paste it into our input field, choose your resolution, and click the lime "Download" button.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 9 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q9">
-                        <span>Can I download YouTube playlists?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes. When you paste a playlist URL, our backend will read and extract the videos from the playlist. Once finished, they will appear in your "Server Downloads" log to download individually.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 10 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q10">
-                        <span>How do I download TikTok videos without a watermark?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Simply copy the TikTok video link, paste it into Anything Downloder, and download it. The video is fetched and compiled without the native watermark logo overlay.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 11 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q11">
-                        <span>How do I save Twitter (X) videos or GIFs?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Copy the post's share URL, paste it in Anything Downloder, choose your desired quality format, and hit Download.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 12 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q12">
-                        <span>Can I download videos from Facebook?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes, copy the URL of the public Facebook video or post, paste it here, and you will get a direct MP4 link to download.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 13 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q13">
-                        <span>How do I download Pinterest videos or images?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Copy the Pin URL, paste it here, and Anything Downloder will automatically extract the source MP4 video or high-resolution JPEG image.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 14 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q14">
-                        <span>Can I download Reddit videos with audio?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes, Reddit videos are natively separated into video and audio tracks, but Anything Downloder automatically fetches and returns the merged media track with complete sound.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 15 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q15">
-                        <span>What video qualities are supported?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        We support 1080p Full HD, 720p HD, 480p SD, 360p SD, and Audio Only (MP3) extractions. The final download formats depend on what options were originally uploaded to the platform servers.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 16 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q16">
-                        <span>Can I convert videos to audio-only (MP3)?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes. Select "Audio Only (MP3)" in the quality selector dropdown before clicking the download button. The downloader will extract the audio track and save it in MP3/M4A format.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 17 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q17">
-                        <span>How do I download videos on an iPhone or iPad (iOS)?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        On iOS Safari, tap download. Open the pre-installed iOS "Files" app, select the downloaded file, tap the "Share" icon (bottom-left arrow), and click "Save Video" to add it to your Camera Roll gallery.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 18 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q18">
-                        <span>Where do downloaded files get saved on my device?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        By default, downloaded files are saved to your device's native "Downloads" directory. You can locate them using your computer's Explorer/Finder, or via the Files manager app on your Android/iOS smartphone.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 19 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q19">
-                        <span>Is it safe to use Anything Downloder?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        Yes, Anything Downloder is entirely secure. We do not require plugins, register accounts, store passwords, or display high-risk overlay ads.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 20 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q20">
-                        <span>Are there any limits on the number of downloads?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        No. You can download as many videos, shorts, pins, reels, or stories as you want. There are no speed throttles or download limits.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 21 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q21">
-                        <span>Can I download private videos or stories?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        No. To respect content ownership and privacy, our scraper can only retrieve media from public profiles and public posts. Private stories or account links are not supported.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 22 -->
-                <div class="faq-item bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 outline-none touch-target" id="faq-q22">
-                        <span>What should I do if a download fails?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-5 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                        If a download fails, verify that the account/video is public and can be viewed without logging in. Try selecting a different quality option (like 720p instead of 1080p) and clicking download again.
+                        No, you can use Downly to download Pinterest videos instantly without creating an account.
                     </div>
                 </div>
             </div>
@@ -741,18 +659,19 @@
         <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex flex-col items-center md:items-start gap-2">
                 <a href="/" class="flex items-center">
-                    <img src="/static/images/logo.png" alt="Anything Downloder Logo" class="h-8 w-auto object-contain rounded-lg" id="footer-logo">
+                    <img src="/static/images/logo.png" alt="Downly Logo" class="h-8 w-auto object-contain rounded-lg" id="footer-logo">
+                    <span class="ml-2 font-display font-extrabold text-sm tracking-tight text-brandRed-500">Downly</span>
                 </a>
-                <p class="text-xs text-slate-400 mt-1">© 2026 Anything Downloder All rights reserved.</p>
+                <p class="text-xs text-slate-400 mt-1">© 2026 Downly All rights reserved.</p>
             </div>
 
             <!-- Footer links -->
             <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
-                <a href="/terms-conditions" class="hover:text-white">Terms of Service</a>
-                <a href="/privacy-policy" class="hover:text-white">Privacy Policy</a>
-                <a href="/about-us" class="hover:text-white">About Us</a>
+                <a href="/terms-conditions" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/about-us" class="hover:text-white transition-colors">About Us</a>
                 <span class="text-slate-600">|</span>
-                <span class="text-slate-500 text-center md:text-left">Disclaimer: This tool is not affiliated with Instagram, TikTok, YouTube, or Facebook.</span>
+                <span class="text-slate-500 text-center md:text-left">Disclaimer: Downly is not affiliated with Pinterest, Inc. We only support public content downloading.</span>
             </div>
         </div>
     </footer>
@@ -780,15 +699,8 @@
             const iconDiv = document.getElementById('url-platform-icon');
             
             const platforms = {
-                'youtube.com': { icon: 'youtube', color: 'text-red-600' },
-                'youtu.be': { icon: 'youtube', color: 'text-red-600' },
-                'instagram.com': { icon: 'instagram', color: 'text-rose-600' },
-                'tiktok.com': { icon: 'video', color: 'text-cyan-500' },
-                'facebook.com': { icon: 'facebook', color: 'text-blue-600' },
-                'fb.watch': { icon: 'facebook', color: 'text-blue-600' },
-                'twitter.com': { icon: 'twitter', color: 'text-sky-500' },
-                'x.com': { icon: 'twitter', color: 'text-sky-500' },
-                'reddit.com': { icon: 'message-square', color: 'text-orange-600' }
+                'pinterest.com': { icon: 'pinterest', color: 'text-brandRed-500' },
+                'pin.it': { icon: 'pinterest', color: 'text-brandRed-500' }
             };
 
             let detected = null;
@@ -801,8 +713,12 @@
 
             if (detected && url.length > 0) {
                 iconDiv.className = `${detected.color} mr-3 transition-colors duration-300`;
-                iconDiv.innerHTML = `<i data-lucide="${detected.icon}" class="w-5 h-5"></i>`;
-                lucide.createIcons();
+                if (detected.icon === 'pinterest') {
+                    iconDiv.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.4 7.63 11.16-.1-.95-.2-2.4.04-3.43.22-.93 1.4-5.93 1.4-5.93s-.36-.72-.36-1.77c0-1.66.96-2.9 2.18-2.9 1.03 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.02-.28 1.2.6 2.18 1.78 2.18 2.14 0 3.78-2.26 3.78-5.52 0-2.88-2.07-4.9-5.03-4.9-3.43 0-5.44 2.57-5.44 5.22 0 1.04.4 2.15.9 2.75.1.12.1.23.08.35l-.34 1.4c-.06.23-.2.32-.45.2-1.66-.77-2.7-3.2-2.7-5.16 0-4.2 3.05-8.06 8.8-8.06 4.62 0 8.2 3.29 8.2 7.68 0 4.6-2.9 8.3-6.93 8.3-1.35 0-2.62-.7-3.05-1.52l-.83 3.17c-.3 1.15-1.12 2.6-1.67 3.5 1.13.33 2.3.52 3.5.52 6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>`;
+                } else {
+                    iconDiv.innerHTML = `<i data-lucide="${detected.icon}" class="w-5 h-5"></i>`;
+                    lucide.createIcons();
+                }
             } else {
                 iconDiv.className = 'text-slate-400 mr-3 transition-colors duration-300';
                 iconDiv.innerHTML = `<i data-lucide="link" class="w-5 h-5"></i>`;
@@ -830,7 +746,7 @@
             tabs.forEach(t => {
                 const btn = document.getElementById('tab-' + t);
                 if (t === tabName) {
-                    btn.className = "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-black bg-brandLime-300 border border-brandLime-300 transition-all shadow-sm whitespace-nowrap";
+                    btn.className = "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-brandRed-500 border border-brandRed-500 transition-all shadow-sm whitespace-nowrap";
                 } else {
                     btn.className = "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-950 transition-all whitespace-nowrap";
                 }
@@ -871,7 +787,7 @@
             const btnSpinner = document.getElementById('btn-spinner');
 
             if (!url) {
-                showStatus(statusDiv, 'Please enter a valid social media URL link', 'error');
+                showStatus(statusDiv, 'Please enter a valid Pinterest Pin link URL', 'error');
                 return;
             }
 
@@ -896,16 +812,16 @@
 
                 if (result.status === 'success') {
                     // Populate details
-                    document.getElementById('result-title').textContent = result.title || 'Extracted Video File';
-                    document.getElementById('result-uploader').innerHTML = `<i data-lucide="user" class="w-3.5 h-3.5"></i> ${result.uploader || '@creator'}`;
-                    document.getElementById('result-platform-badge').textContent = result.platform || 'video';
+                    document.getElementById('result-title').textContent = result.title || 'Extracted Pinterest Media File';
+                    document.getElementById('result-uploader').innerHTML = `<i data-lucide="user" class="w-3.5 h-3.5"></i> ${result.uploader || '@pinterest_creator'}`;
+                    document.getElementById('result-platform-badge').textContent = 'Pinterest';
                     
                     // Thumbnail
                     const thumbnailImg = document.getElementById('result-thumbnail');
                     if (result.thumbnail_local) {
                         thumbnailImg.src = result.thumbnail_local;
                     } else {
-                        // generic thumbnail based on platform
+                        // generic thumbnail
                         thumbnailImg.src = `https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=300&auto=format&fit=crop&q=60`;
                     }
 
@@ -925,7 +841,7 @@
                     if (result.files && result.files.length > 0) {
                         result.files.forEach(file => {
                             const fileRow = document.createElement('div');
-                            fileRow.className = "flex items-center justify-between p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brandLime-500 transition-colors shadow-sm";
+                            fileRow.className = "flex items-center justify-between p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brandRed-500 transition-colors shadow-sm";
                             
                             const sizeText = file.size > 1048576 
                                 ? `${(file.size / 1048576).toFixed(2)} MB` 
@@ -933,15 +849,15 @@
                             
                             fileRow.innerHTML = `
                                 <div class="flex items-center gap-3 min-w-0">
-                                    <div class="w-9 h-9 rounded-lg bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-700 dark:text-brandLime-400 flex items-center justify-center shrink-0">
+                                    <div class="w-9 h-9 rounded-lg bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-700 dark:text-brandRed-400 flex items-center justify-center shrink-0">
                                         <i data-lucide="video" class="w-5 h-5"></i>
                                     </div>
                                     <div class="min-w-0">
                                         <p class="text-sm font-semibold text-slate-800 dark:text-white truncate pr-2">${file.name}</p>
-                                        <p class="text-xs text-slate-500 dark:text-slate-400">${sizeText} • Video Media</p>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">${sizeText} • Pinterest HD Media</p>
                                     </div>
                                 </div>
-                                <a href="/download-file/${file.path}" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-lg shadow-sm transition-all shrink-0">
+                                <a href="/download-file/${file.path}" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-lg shadow-sm transition-all shrink-0">
                                     Download File
                                 </a>
                             `;
@@ -951,7 +867,7 @@
                         // Fallback single download link
                         optionsDiv.innerHTML = `
                             <p class="text-xs text-slate-500 dark:text-slate-400 italic mb-2">No files registered on the server. Try direct download below.</p>
-                            <a href="${url}" target="_blank" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-xl shadow-sm transition-all gap-2">
+                            <a href="${url}" target="_blank" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-xl shadow-sm transition-all gap-2">
                                 <i data-lucide="external-link" class="w-4 h-4"></i> Open Direct Video Link
                             </a>
                         `;
@@ -960,7 +876,7 @@
                     resultCard.classList.remove('hidden');
                     lucide.createIcons();
                 } else {
-                    showStatus(statusDiv, result.message || 'Scraping failed. Please verify the video link and try again.', 'error');
+                    showStatus(statusDiv, result.message || 'Scraping failed. Please verify the Pinterest link and try again.', 'error');
                 }
             } catch (err) {
                 console.error(err);
@@ -968,7 +884,7 @@
                 showStatus(statusDiv, 'Network error. The server could not be reached.', 'error');
             } finally {
                 // Restore Button State
-                btnText.textContent = 'Download';
+                btnText.textContent = 'Download Now';
                 btnArrow.classList.remove('hidden');
                 btnSpinner.classList.add('hidden');
             }
@@ -985,7 +901,7 @@
             const btnSpinner = document.getElementById('bulk-btn-spinner');
 
             if (urls.length === 0) {
-                showStatus(statusDiv, 'Please paste at least one video link (one per line).', 'error');
+                showStatus(statusDiv, 'Please paste at least one Pinterest video link (one per line).', 'error');
                 return;
             }
 
@@ -1024,7 +940,7 @@
             const listDiv = document.getElementById('downloads-list');
             listDiv.innerHTML = `
                 <div class="flex items-center justify-center py-12">
-                    <span class="w-8 h-8 border-4 border-brandLime-400 border-t-transparent rounded-full animate-spin"></span>
+                    <span class="w-8 h-8 border-4 border-brandRed-500 border-t-transparent rounded-full animate-spin"></span>
                 </div>
             `;
 
@@ -1066,7 +982,7 @@
                     headerHtml = `
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-700 dark:text-brandLime-400 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-xl bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-700 dark:text-brandRed-400 flex items-center justify-center shrink-0">
                                     <i data-lucide="file" class="w-5 h-5"></i>
                                 </div>
                                 <div class="min-w-0">
@@ -1074,7 +990,7 @@
                                     <p class="text-xs text-slate-500 dark:text-slate-400">${sizeText}</p>
                                 </div>
                             </div>
-                            <a href="/download-file/${item.path}" class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-lg shadow-sm transition-all shrink-0">
+                            <a href="/download-file/${item.path}" class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-lg shadow-sm transition-all shrink-0">
                                 <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
                             </a>
                         </div>
@@ -1083,7 +999,7 @@
                     headerHtml = `
                         <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80 pb-3">
                             <div class="flex items-center gap-3 min-w-0">
-                                <div class="w-10 h-10 rounded-xl bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-700 dark:text-brandLime-400 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-xl bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-700 dark:text-brandRed-400 flex items-center justify-center shrink-0">
                                     <i data-lucide="folder" class="w-5 h-5"></i>
                                 </div>
                                 <div class="min-w-0">
@@ -1106,7 +1022,7 @@
                                     <span class="text-xs text-slate-600 dark:text-slate-300 font-medium truncate pr-4 max-w-[200px] sm:max-w-md">${file.name}</span>
                                     <div class="flex items-center gap-3 shrink-0">
                                         <span class="text-xs text-slate-400 dark:text-slate-500 font-mono">${fileSizeText}</span>
-                                        <a href="/download-file/${file.path}" class="text-brandLime-600 dark:text-brandLime-400 hover:text-brandLime-700 dark:hover:text-brandLime-300 font-bold text-xs flex items-center gap-0.5">
+                                        <a href="/download-file/${file.path}" class="text-brandRed-600 dark:text-brandRed-400 hover:text-brandRed-700 dark:hover:text-brandRed-300 font-bold text-xs flex items-center gap-0.5">
                                             <i data-lucide="download" class="w-3 h-3"></i> Get File
                                         </a>
                                     </div>
@@ -1227,7 +1143,7 @@
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
             <div class="text-center space-y-4">
-                <div class="w-12 h-12 rounded-full bg-brandLime-100 dark:bg-brandLime-500/10 text-brandLime-700 dark:text-brandLime-400 flex items-center justify-center mx-auto">
+                <div class="w-12 h-12 rounded-full bg-brandRed-100 dark:bg-brandRed-500/10 text-brandRed-700 dark:text-brandRed-400 flex items-center justify-center mx-auto">
                     <i data-lucide="smartphone" class="w-6 h-6"></i>
                 </div>
                 <h3 class="font-display font-extrabold text-lg text-slate-900 dark:text-white">Test on your Mobile</h3>
@@ -1236,16 +1152,16 @@
                 <div class="bg-slate-50 dark:bg-slate-950 p-4 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col items-center gap-3">
                     <!-- QR Code container -->
                     <div class="bg-white p-2 border border-slate-200 rounded-xl w-40 h-40 flex items-center justify-center" id="qr-container">
-                        <span class="w-8 h-8 border-4 border-brandLime-400 border-t-transparent rounded-full animate-spin block"></span>
+                        <span class="w-8 h-8 border-4 border-brandRed-500 border-t-transparent rounded-full animate-spin block"></span>
                     </div>
                     <!-- Local Link -->
                     <div class="space-y-1">
                         <span class="text-xs text-slate-400 block">Or open this link on your phone:</span>
-                        <a id="mobile-url-link" href="#" target="_blank" class="text-sm font-bold text-brandLime-700 hover:underline break-all block">Loading URL...</a>
+                        <a id="mobile-url-link" href="#" target="_blank" class="text-sm font-bold text-brandRed-700 hover:underline break-all block">Loading URL...</a>
                     </div>
                 </div>
                 
-                <button onclick="toggleMobileModal()" class="w-full py-2.5 text-sm font-bold text-black bg-brandLime-300 hover:bg-brandLime-400 rounded-xl shadow-sm transition-all">
+                <button onclick="toggleMobileModal()" class="w-full py-2.5 text-sm font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-xl shadow-sm transition-all">
                     Close Window
                 </button>
             </div>

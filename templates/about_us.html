@@ -18,8 +18,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Anything Downloder</title>
-    <meta name="description" content="Learn more about Anything Downloder, the number one social media downloader tool for Instagram, YouTube, TikTok, and more.">
+    <title>About Us | Downly – Pinterest Video Downloader</title>
+    <meta name="description" content="Learn more about Downly, the premier Pinterest video downloader designed to help you save Pinterest videos, idea pins, GIFs, and images easily.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -34,15 +34,17 @@
                         display: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        brandLime: {
-                            50: '#f7fee7',
-                            100: '#ecfccb',
-                            200: '#d9f99d',
-                            300: '#bef264',
-                            400: '#a3e635',
-                            500: '#84cc16',
-                            600: '#65a30d',
-                            700: '#4d7c0f',
+                        brandRed: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#e60023', // Pinterest red
+                            600: '#cc001f',
+                            700: '#a30019',
+                            800: '#7f1d1d',
+                            900: '#4c0505',
                         }
                     }
                 }
@@ -64,7 +66,7 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #F8FAFC;
+            background: #ffffff;
         }
         .dark ::-webkit-scrollbar-track {
             background: #0B0F19;
@@ -88,13 +90,14 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-[#0B0F19] text-slate-800 dark:text-slate-100 font-sans min-h-screen relative overflow-x-hidden flex flex-col justify-between">
+<body class="bg-white dark:bg-[#0B0F19] text-slate-800 dark:text-slate-100 font-sans min-h-screen relative overflow-x-hidden flex flex-col justify-between transition-colors duration-300">
 
     <!-- Header Section -->
-    <header class="sticky top-0 z-50 w-full bg-white dark:bg-[#0B0F19]/90 border-b border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-md transition-all duration-300">
+    <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#0B0F19]/95 border-b border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-md transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center">
-                <img src="/static/images/logo.png" alt="Anything Downloder Logo" class="h-10 w-auto object-contain rounded-xl" id="header-logo">
+                <img src="/static/images/logo.png" alt="Downly Logo" class="h-10 w-auto object-contain rounded-xl" id="header-logo">
+                <span class="ml-2.5 font-display font-extrabold text-xl tracking-tight text-brandRed-500">Downly</span>
             </a>
             
             <div class="flex items-center gap-3">
@@ -103,8 +106,8 @@
                     <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
                     <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
                 </button>
-                <a href="/#downloader-widget" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-black bg-brandLime-400 hover:bg-brandLime-500 rounded-xl transition-all shadow-sm">
-                    Get Started
+                <a href="/#downloader-widget" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-xl transition-all shadow-sm">
+                    Download Now
                 </a>
             </div>
         </div>
@@ -113,8 +116,9 @@
         <div class="bg-slate-50 dark:bg-slate-950/80 border-t border-slate-100 dark:border-slate-900">
             <div class="max-w-6xl mx-auto px-4 py-2 flex items-center gap-6 text-xs sm:text-sm font-semibold overflow-x-auto whitespace-nowrap scrollbar-none">
                 <a href="/" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
-                <a href="/about-us" class="text-brandLime-600 dark:text-brandLime-400 transition-colors border-b-2 border-brandLime-500 pb-0.5">About Us</a>
+                <a href="/about-us" class="text-brandRed-600 dark:text-brandRed-400 transition-colors border-b-2 border-brandRed-500 pb-0.5">About Us</a>
                 <a href="/contact-us" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact Us</a>
+                <a href="/faq" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">FAQ</a>
                 <a href="/privacy-policy" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
                 <a href="/terms-conditions" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Terms & Conditions</a>
             </div>
@@ -122,34 +126,53 @@
     </header>
 
     <!-- Content Section -->
-    <main class="max-w-4xl mx-auto px-4 py-12 flex-1 w-full space-y-8">
+    <main class="max-w-4xl mx-auto px-4 py-12 flex-1 w-full space-y-8 animate-fadeIn">
         <div class="space-y-4">
             <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">About Us</h1>
-            <div class="h-1 w-16 bg-brandLime-500 rounded-full"></div>
+            <div class="h-1 w-16 bg-brandRed-500 rounded-full"></div>
         </div>
 
         <div class="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
             <p>
-                Welcome to <strong>Anything Downloder</strong>, your number one destination for downloading public social media content. We offer an all-in-one utility that extracts video, reels, stories, shorts, and audio files from platforms like Instagram, YouTube, TikTok, Facebook, Twitter (X), Reddit, Snapchat, LinkedIn, and more.
+                Welcome to <strong>Downly</strong>, a dedicated downloader that helps users save Pinterest videos, idea pins, GIFs, and images quickly, easily, and securely. We offer a 100% free web utility focused on extracting multimedia from Pinterest in high definition (HD).
             </p>
 
             <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Our Mission</h2>
             <p>
-                Our mission is to provide the simplest, fastest, and most secure downloading utility online. We believe in user privacy and convenience. That is why Anything Downloder is entirely free, requires no software installation or browser extensions, and collects no personal data or signups.
+                Our mission is to provide the simplest and most secure Pinterest downloading experience online. We prioritize user privacy. That is why Downly is completely free to use, runs directly in your web browser with no software installation, and requires no registration or personal accounts.
             </p>
 
-            <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Key Core Features</h2>
-            <ul class="list-disc pl-5 space-y-2">
-                <li><strong>All-in-One Scraper</strong>: Support for over 12+ social networks and 1000+ media sites.</li>
-                <li><strong>Full HD Quality Support</strong>: Download files in original resolutions, up to 1080p and 4K.</li>
-                <li><strong>Audio-Only Extractor (MP3)</strong>: Convert any social media video to an audio track.</li>
-                <li><strong>No Watermarks</strong>: Save TikTok videos without overlay logos.</li>
-                <li><strong>100% Privacy & Safety</strong>: No registration, cookies storage, or passwords needed.</li>
+            <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Key Features</h2>
+            <ul class="list-none space-y-3">
+                <li class="flex items-center gap-3">
+                    <i data-lucide="check" class="w-5 h-5 text-brandRed-500 shrink-0"></i>
+                    <span><strong>Download Pinterest Videos</strong> – Fetch MP4 videos from standard pins easily.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <i data-lucide="check" class="w-5 h-5 text-brandRed-500 shrink-0"></i>
+                    <span><strong>Download Idea Pins</strong> – Save modern Pinterest story/idea format layouts.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <i data-lucide="check" class="w-5 h-5 text-brandRed-500 shrink-0"></i>
+                    <span><strong>Download Pinterest GIFs</strong> – Save animated GIF formats directly to your device.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <i data-lucide="check" class="w-5 h-5 text-brandRed-500 shrink-0"></i>
+                    <span><strong>Download Pinterest Images</strong> – Extract high-resolution static images.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <i data-lucide="check" class="w-5 h-5 text-brandRed-500 shrink-0"></i>
+                    <span><strong>HD Quality Downloads</strong> – Preserve the original resolution of videos and photos.</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <i data-lucide="check" class="w-5 h-5 text-brandRed-500 shrink-0"></i>
+                    <span><strong>Fast Processing & Free Forever</strong> – Instant server response with absolutely zero caps.</span>
+                </li>
             </ul>
 
             <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">How We Do It</h2>
             <p>
-                Our server-side scraping engine fetches content directly from public CDNs, packages the best streams using integrated file-mergers like FFmpeg, and hands the final media directly to your local device downloads directory.
+                Our server-side scraping engine fetches content directly from public CDNs, parses the page to locate the original source file link, and allows you to download it directly. Everything happens securely without leaving your web browser.
             </p>
         </div>
     </main>
@@ -159,18 +182,19 @@
         <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex flex-col items-center md:items-start gap-2">
                 <a href="/" class="flex items-center">
-                    <img src="/static/images/logo.png" alt="Anything Downloder Logo" class="h-8 w-auto object-contain rounded-lg" id="footer-logo">
+                    <img src="/static/images/logo.png" alt="Downly Logo" class="h-8 w-auto object-contain rounded-lg" id="footer-logo">
+                    <span class="ml-2 font-display font-extrabold text-sm tracking-tight text-brandRed-500">Downly</span>
                 </a>
-                <p class="text-xs text-slate-400 mt-1">© 2026 Anything Downloder All rights reserved.</p>
+                <p class="text-xs text-slate-400 mt-1">© 2026 Downly All rights reserved.</p>
             </div>
 
             <!-- Footer links -->
             <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
-                <a href="/terms-conditions" class="hover:text-white">Terms of Service</a>
-                <a href="/privacy-policy" class="hover:text-white">Privacy Policy</a>
-                <a href="/about-us" class="hover:text-white">About Us</a>
+                <a href="/terms-conditions" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/about-us" class="hover:text-white transition-colors">About Us</a>
                 <span class="text-slate-600">|</span>
-                <span class="text-slate-500 text-center md:text-left">Disclaimer: This tool is not affiliated with Instagram, TikTok, YouTube, or Facebook.</span>
+                <span class="text-slate-500 text-center md:text-left">Disclaimer: Downly is not affiliated with Pinterest, Inc. We only support public content downloading.</span>
             </div>
         </div>
     </footer>

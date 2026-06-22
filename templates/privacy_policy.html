@@ -18,8 +18,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Anything Downloder</title>
-    <meta name="description" content="Read our privacy policy to understand how Anything Downloder securely processes downloads anonymously.">
+    <title>Privacy Policy | Downly – Pinterest Video Downloader</title>
+    <meta name="description" content="Read Downly's privacy policy to understand how we securely and anonymously process Pinterest video URLs without storing personal data.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -34,15 +34,17 @@
                         display: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        brandLime: {
-                            50: '#f7fee7',
-                            100: '#ecfccb',
-                            200: '#d9f99d',
-                            300: '#bef264',
-                            400: '#a3e635',
-                            500: '#84cc16',
-                            600: '#65a30d',
-                            700: '#4d7c0f',
+                        brandRed: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#e60023', // Pinterest red
+                            600: '#cc001f',
+                            700: '#a30019',
+                            800: '#7f1d1d',
+                            900: '#4c0505',
                         }
                     }
                 }
@@ -51,6 +53,7 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
+        // Set theme on load
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.classList.remove('dark');
         } else {
@@ -63,7 +66,7 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #F8FAFC;
+            background: #ffffff;
         }
         .dark ::-webkit-scrollbar-track {
             background: #0B0F19;
@@ -87,23 +90,24 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-[#0B0F19] text-slate-800 dark:text-slate-100 font-sans min-h-screen relative overflow-x-hidden flex flex-col justify-between">
+<body class="bg-white dark:bg-[#0B0F19] text-slate-800 dark:text-slate-100 font-sans min-h-screen relative overflow-x-hidden flex flex-col justify-between transition-colors duration-300">
 
     <!-- Header Section -->
-    <header class="sticky top-0 z-50 w-full bg-white dark:bg-[#0B0F19]/90 border-b border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-md transition-all duration-300">
+    <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#0B0F19]/95 border-b border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-md transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center">
-                <img src="/static/images/logo.png" alt="Anything Downloder Logo" class="h-10 w-auto object-contain rounded-xl" id="header-logo">
+                <img src="/static/images/logo.png" alt="Downly Logo" class="h-10 w-auto object-contain rounded-xl" id="header-logo">
+                <span class="ml-2.5 font-display font-extrabold text-xl tracking-tight text-brandRed-500">Downly</span>
             </a>
             
             <div class="flex items-center gap-3">
-                <!-- Theme Toggle -->
+                <!-- Theme Toggle Button -->
                 <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all touch-target" aria-label="Toggle Theme">
                     <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
                     <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
                 </button>
-                <a href="/#downloader-widget" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-black bg-brandLime-400 hover:bg-brandLime-500 rounded-xl transition-all shadow-sm">
-                    Get Started
+                <a href="/#downloader-widget" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-brandRed-500 hover:bg-brandRed-600 rounded-xl transition-all shadow-sm">
+                    Download Now
                 </a>
             </div>
         </div>
@@ -114,22 +118,28 @@
                 <a href="/" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
                 <a href="/about-us" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
                 <a href="/contact-us" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact Us</a>
-                <a href="/privacy-policy" class="text-brandLime-600 dark:text-brandLime-400 transition-colors border-b-2 border-brandLime-500 pb-0.5">Privacy Policy</a>
+                <a href="/faq" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">FAQ</a>
+                <a href="/privacy-policy" class="text-brandRed-600 dark:text-brandRed-400 transition-colors border-b-2 border-brandRed-500 pb-0.5">Privacy Policy</a>
                 <a href="/terms-conditions" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Terms & Conditions</a>
             </div>
         </div>
     </header>
 
     <!-- Content Section -->
-    <main class="max-w-4xl mx-auto px-4 py-12 flex-1 w-full space-y-8">
+    <main class="max-w-4xl mx-auto px-4 py-12 flex-1 w-full space-y-8 animate-fadeIn">
         <div class="space-y-4">
             <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Privacy Policy</h1>
-            <div class="h-1 w-16 bg-brandLime-500 rounded-full"></div>
+            <div class="h-1 w-16 bg-brandRed-500 rounded-full"></div>
         </div>
 
         <div class="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
             <p>
-                At <strong>Anything Downloder</strong>, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document outlines the types of information collected and how we handle it.
+                At <strong>Downly</strong>, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document outlines the types of information collected and how we handle it.
+            </p>
+
+            <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Pinterest URL Processing</h2>
+            <p>
+                Downly processes Pinterest video and pin URLs that you submit to extract the direct multimedia file link. This processing is performed entirely anonymously and temporarily on our server. We do not store or keep copies of the media you download, nor do we save your download history, submitted URLs, or details of your Pinterest account.
             </p>
 
             <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Anonymous Downloading</h2>
@@ -139,17 +149,17 @@
 
             <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Log Files</h2>
             <p>
-                Anything Downloder follows a standard procedure of using log files. These logs register visitors when they access websites. The details include Internet Protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, and referring/exit pages. This information is used solely to evaluate website analytics, administer the site, and secure the hosting server.
+                Downly follows a standard procedure of using log files. These logs register visitors when they access websites. The details include Internet Protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, and referring/exit pages. This information is used solely to evaluate website analytics, administer the site, and secure the hosting server.
             </p>
 
             <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Cookies & Web Beacons</h2>
             <p>
-                Like any other website, Anything Downloder may use cookies to store information including visitors' preferences and browser configurations. This is used to optimize the user experience by customizing web page content based on visitors' browser types and settings.
+                Like any other website, Downly may use cookies to store information including visitors' preferences and browser configurations. This is used to optimize the user experience by customizing web page content based on visitors' browser types and settings.
             </p>
 
             <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white pt-2">Third-Party Privacy Policies</h2>
             <p>
-                Anything Downloder's Privacy Policy does not apply to other advertisers or external websites. We advise you to consult the respective Privacy Policies of these third-party ad servers or networks for more detailed information.
+                Downly's Privacy Policy does not apply to other advertisers or external websites. We advise you to consult the respective Privacy Policies of these third-party ad servers or networks for more detailed information.
             </p>
         </div>
     </main>
@@ -159,18 +169,19 @@
         <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex flex-col items-center md:items-start gap-2">
                 <a href="/" class="flex items-center">
-                    <img src="/static/images/logo.png" alt="Anything Downloder Logo" class="h-8 w-auto object-contain rounded-lg" id="footer-logo">
+                    <img src="/static/images/logo.png" alt="Downly Logo" class="h-8 w-auto object-contain rounded-lg" id="footer-logo">
+                    <span class="ml-2 font-display font-extrabold text-sm tracking-tight text-brandRed-500">Downly</span>
                 </a>
-                <p class="text-xs text-slate-400 mt-1">© 2026 Anything Downloder All rights reserved.</p>
+                <p class="text-xs text-slate-400 mt-1">© 2026 Downly All rights reserved.</p>
             </div>
 
             <!-- Footer links -->
             <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
-                <a href="/terms-conditions" class="hover:text-white">Terms of Service</a>
-                <a href="/privacy-policy" class="hover:text-white">Privacy Policy</a>
-                <a href="/about-us" class="hover:text-white">About Us</a>
+                <a href="/terms-conditions" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/about-us" class="hover:text-white transition-colors">About Us</a>
                 <span class="text-slate-600">|</span>
-                <span class="text-slate-500 text-center md:text-left">Disclaimer: This tool is not affiliated with Instagram, TikTok, YouTube, or Facebook.</span>
+                <span class="text-slate-500 text-center md:text-left">Disclaimer: Downly is not affiliated with Pinterest, Inc. We only support public content downloading.</span>
             </div>
         </div>
     </footer>

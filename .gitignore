@@ -24,3 +24,7 @@ downloads/
 *.log
 *.zip
 *.tar.gz
+
+# Wrangler & Environment
+.wrangler/
+.dev.vars

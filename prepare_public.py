@@ -26,7 +26,7 @@ def main():
     os.makedirs(public_dir, exist_ok=True)
     
     # 2. Copy templates to public root
-    templates = ['index.html', 'about_us.html', 'contact_us.html', 'privacy_policy.html', 'terms_conditions.html']
+    templates = ['index.html', 'about_us.html', 'contact_us.html', 'privacy_policy.html', 'terms_conditions.html', 'faq.html']
     for t in templates:
         src = os.path.join(templates_dir, t)
         dst = os.path.join(public_dir, t)

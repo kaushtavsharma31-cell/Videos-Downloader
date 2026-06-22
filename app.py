@@ -55,7 +55,7 @@ class UniversalDownloader:
             return 'twitter'
         elif 'tiktok.com' in url:
             return 'tiktok'
-        elif 'pinterest.com' in url:
+        elif 'pinterest.com' in url or 'pin.it' in url:
             return 'pinterest'
         elif 'linkedin.com' in url:
             return 'linkedin'
@@ -403,6 +403,11 @@ def about_us():
     """About Us page"""
     return render_template('about_us.html')
 
+@app.route('/faq')
+def faq():
+    """FAQ page"""
+    return render_template('faq.html')
+
 @app.route('/contact-us')
 def contact_us():
     """Contact Us page"""
@@ -687,11 +692,11 @@ def serve_apple_touch_icon():
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("UNIVERSAL SOCIAL MEDIA DOWNLOADER")
+    print("DOWNLY - PINTEREST VIDEO DOWNLOADER")
     print("=" * 60)
     print("Starting server...")
-    print("Supported platforms: YouTube, Instagram, TikTok, Twitter/X, Facebook, Reddit, and more!")
-    print("Features: Stories, Reels, Posts, Videos, Bulk downloads")
+    print("Supported platform: Pinterest (Videos, Idea Pins, GIFs, Images, Reels)")
+    print("Features: Single Pin Downloads, Bulk downloads, Server History logs")
     print("Server running on: http://localhost:5000")
     print("=" * 60)
     app.run(debug=True, host='0.0.0.0', port=5000)
